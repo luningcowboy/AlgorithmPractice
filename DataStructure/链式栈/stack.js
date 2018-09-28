@@ -45,7 +45,7 @@ class Stack{
         let tmp_top = this.top;
         let tmp_next = null;
         while(tmp_top !== this.bottom){
-            tmp_next = tmp_top.next();
+            tmp_next = tmp_top.next;
             tmp_top = tmp_next;
         }
         this.top = this.bottom;
@@ -53,8 +53,32 @@ class Stack{
     outPut(){
         let cur = this.top;
         while(cur !== this.bottom){
-            console.log(`${cur.data} `);
+            console.log(`${cur.value} `);
             cur = cur.next;
         }
     }
 }
+
+function main(){
+    let stack = Stack.create();
+    stack.push(2);
+    stack.push(6);
+    stack.push(28);
+
+    stack.outPut();
+
+    let pop = stack.pop();
+    if(pop !== null){
+        console.log('pop success', pop.value);
+    }
+    else{
+        console.log('pop failed');
+    }
+
+    stack.outPut();
+
+    stack.clear();
+    stack.outPut();
+}
+
+main();
