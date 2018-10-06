@@ -6,10 +6,13 @@ function sort(arr){
         let key = arr[i];
         while(low <= high){
             let mid = parseInt((low + high) / 2);
-            if(key < arr[mid]) high = mid - 1;
-            else low = mid + 1;
+            if(key < arr[mid]) 
+                high = mid - 1;
+            else 
+                low = mid + 1;
         }
-        for(let j = i ; j > low ; j--) arr[j] = arr[j - 1];
+        for(let j = i ; j > low ; j--) 
+            arr[j] = arr[j - 1];
         arr[low] = key;
     }
 }
