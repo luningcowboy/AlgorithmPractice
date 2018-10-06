@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Node::Node(int value = 0, Node * pNext = nullptr){
+Node::Node(int value, Node * pNext){
     m_value = value;
     m_pNext = pNext;
 }
@@ -19,13 +19,13 @@ StackCpp * StackCpp::create(){
     return pRet;
 }
 StackCpp::StackCpp(){
-    m_pTop = new Node();
+    m_pTop = new Node(0,nullptr);
     m_pBottom = m_pTop;
     m_pTop->setNext(m_pBottom);
     m_pBottom->setNext(nullptr);
 }
 void StackCpp::push(int value){
-    Node * pNode = new Node(value);
+    Node * pNode = new Node(value, nullptr);
     pNode->setNext(m_pTop);
     m_pTop = pNode;
 }
@@ -33,10 +33,11 @@ bool StackCpp::isEmpty(){
     return m_pTop == m_pBottom;
 }
 bool StackCpp::pop(){
-    if(isEmpty()) return;
+    if(isEmpty()) return false;
     Node * pNext = m_pTop->getNext();
     delete m_pTop;
     m_pTop = pNext;
+    return true;
 }
 void StackCpp::clear(){
     if(isEmpty()) return;
