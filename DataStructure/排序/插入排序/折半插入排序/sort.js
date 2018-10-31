@@ -14,6 +14,7 @@ function sort(arr){
         for(let j = i ; j > low ; j--) 
             arr[j] = arr[j - 1];
         arr[low] = key;
+        console.log(arr);
     }
 }
 
