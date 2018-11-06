@@ -1,0 +1,22 @@
+{
+    "globals": {
+        "$": false,
+        "window": true,
+        "document":false,
+        "console":true,
+        "require":true,
+        "describe":true,
+        "it":true,
+        "sp":false,
+        "module": true,
+        "expect": true
+    },
+    "strict": false,
+    "curly": false,  
+    "eqeqeq": true,
+    "noarg": true,
+    "noempty": true,
+    "undef": true,
+    "unused": true,
+    "esversion": 6
+}
