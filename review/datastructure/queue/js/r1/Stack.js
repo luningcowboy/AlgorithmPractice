@@ -18,10 +18,13 @@ class Stack{
         return remove_tail ? remove_tail.value : null;
     }
     toArray(){
-        return this.linkedList.toArray().map(linkedListNode=>linkedListNode.value).reverse();
+        return this.linkedList
+        .toArray()
+        .map(linkedListNode=>linkedListNode.value)
+        .reverse();
     }
-    toString(){
-        return this.linkedList.toString();
+    toString(callback){
+        return this.linkedList.toString(callback);
     }
 }
 
