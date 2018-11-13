@@ -19,10 +19,13 @@ var addTwoNumbers = function(l1, l2) {
     let ret = new ListNode(0);
     let cc = ret;
     while(c1 || c2){
-        let v = c1.val + c2.val + cc.val;
-        cc.val = v >= 10 ? v - 10 : v;
-        if(c1.next || c2.next || v >= 10){
-            cc.next = new ListNode(v >= 10 ? 1 : 0);
+        let v1 = c1 !== null ? c1.val : 0;
+        let v2 = c2 !== null ? c2.val : 0;
+        let v = v1 + v2 + cc.val;
+        cc.val = parseInt(v / 10);
+        if(c1 === null && c2 === null) break;
+        if(c1.next !== null || c2.next !== null || v >= 10){
+            cc.next = new ListNode(parseInt(v % 10));
             cc = cc.next;
             c1 = c1.next;
             c2 = c2.next;
